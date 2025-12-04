@@ -3,23 +3,28 @@ import { Link } from 'expo-router'
 
 import Logo from '../assets/img/logo_light.png'
 import { Colors } from '../constants/Colors'
+import ThemeView from '../components/ThemeView'
+import Spacer from '../components/Spacer'
+import ThemedLogo from '../components/ThemedLogo'
+import ThemedText from '../components/ThemedText'
 
 const Home = () => {
     const colorScheme = useColorScheme()
     const theme = Colors[colorScheme] ?? Colors.light
     return (
-        <View style={[styles.container, { backgroundColor: theme.background }]}>
-            <Image source={Logo} style={styles.img} />
+        <ThemeView style={[styles.container, { backgroundColor: theme.background }]}>
+            <ThemedLogo />
+            <Spacer height={20} />
 
-            <Text style={[styles.title, { color: theme.title }]}>The Number 1</Text>
+            <ThemedText style={styles.title} title={true}>The Number 1</ThemedText>
 
-            <Text style={[{ marginTop: 10, marginBottom: 30, color: theme.title }]}>
-                Reading List App
-            </Text>
+            <Spacer height={20} />
+            <ThemedText>  Reading List App</ThemedText>
+            <Spacer />
 
-            <Link href="/about" style={[styles.link, { color: theme.text }]}>About Page</Link>
-            <Link href="/contact" style={[styles.link, { color: theme.text }]}>Contact Page</Link>
-        </View>
+            <Link href="/about" style={[styles.link, { color: theme.text }]}><ThemedText>About Page</ThemedText></Link>
+            <Link href="/contact" style={[styles.link, { color: theme.text }]}><ThemedText>Contact Page</ThemedText></Link>
+        </ThemeView>
     )
 }
 
