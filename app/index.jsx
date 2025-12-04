@@ -1,21 +1,24 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
-//import { Container } from 'lucide-react'
-import Logo from '../assets/img/logo.png'
+import { Image, StyleSheet, Text, View, useColorScheme } from 'react-native'
 import { Link } from 'expo-router'
 
-const Home = () => {
-    return (
-        <View style={styles.Container}>
-            <Image style={styles.img} source={Logo} />
+import Logo from '../assets/img/logo_light.png'
+import { Colors } from '../constants/Colors'
 
-            <Text style={styles.title}>The Number 1</Text>
-            <Text style={{ marginTop: 10, marginBottom: 30 }}>Reading List App</Text>
-            {/* <View>
-                <Text style={styles.card}>Hello,this is a card.</Text>
-            </View> */}
-            <Link href="/about" style={styles.link}>About Page</Link>
-            <Link href="/contact" style={styles.link}>Contact Page</Link>
+const Home = () => {
+    const colorScheme = useColorScheme()
+    const theme = Colors[colorScheme] ?? Colors.light
+    return (
+        <View style={[styles.container, { backgroundColor: theme.background }]}>
+            <Image source={Logo} style={styles.img} />
+
+            <Text style={[styles.title, { color: theme.title }]}>The Number 1</Text>
+
+            <Text style={[{ marginTop: 10, marginBottom: 30, color: theme.title }]}>
+                Reading List App
+            </Text>
+
+            <Link href="/about" style={[styles.link, { color: theme.text }]}>About Page</Link>
+            <Link href="/contact" style={[styles.link, { color: theme.text }]}>Contact Page</Link>
         </View>
     )
 }
@@ -23,25 +26,18 @@ const Home = () => {
 export default Home
 
 const styles = StyleSheet.create({
-    Container: {
+    container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
-
-    },
-    title: {
-        fontWeight: 'bold',
-        fontSize: 18
-
-    },
-    card: {
-        backgroundColor: '#fff',
-        padding: 20,
-        borderRadius: 5,
-        boxShadow: "4px 4px rgba(0,0,0,0.1)"
+        justifyContent: 'center',
+        backgroundColor: '#e0dfe8'
     },
     img: {
         marginVertical: 20
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
     },
     link: {
         marginVertical: 10,
