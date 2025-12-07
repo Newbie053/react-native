@@ -6,10 +6,15 @@ import ThemedText from '../../components/ThemedText'
 import Spacer from '../../components/Spacer'
 import { Colors } from '../../constants/Colors'
 import ThemedButton from '../../components/Themedutton'
+import ThemedTextInput from '../../components/ThemedTextInput'
+import { useState } from 'react'
 
 const Register = () => {
-    const handleSubmit = () => {
-        console.log("Register Button Pressed")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleSubmit = async () => {
+        console.log('register form submitted: ', email, password)
     }
     return (
         <ThemeView style={styles.container}>
@@ -18,6 +23,23 @@ const Register = () => {
             <ThemedText title={true} style={styles.title}>
                 Register an Account
             </ThemedText>
+
+            <Spacer />
+            <ThemedTextInput
+                style={{ marginBottom: 20, width: "80%" }}
+                placeholder="Email"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+            />
+
+            <ThemedTextInput
+                style={{ marginBottom: 20, width: "80%" }}
+                placeholder="Password"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+            />
             <ThemedButton onPress={handleSubmit}>
                 <Text style={{ color: '#f2f2f2' }}>Register</Text>
             </ThemedButton>
