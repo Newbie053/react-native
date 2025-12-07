@@ -6,7 +6,7 @@ export default function AuthLayout() {
         <>
             <StatusBar style="auto" />
             <Stack
-                screenOptions={{ headerShown: false, animation: "none" }}
+                screenOptions={{ animation: "none" }}
             />
         </>
     )
