@@ -22,8 +22,8 @@ const Home = () => {
             <ThemedText>  Reading List App</ThemedText>
             <Spacer />
 
-            <Link href="/about" style={[styles.link, { color: theme.text }]}><ThemedText>About Page</ThemedText></Link>
-            <Link href="/contact" style={[styles.link, { color: theme.text }]}><ThemedText>Contact Page</ThemedText></Link>
+            <Link href="/login" style={styles.link}><ThemedText>Login Page</ThemedText></Link>
+            <Link href="/register" style={styles.link}><ThemedText>Register Page</ThemedText></Link>
         </ThemeView>
     )
 }
