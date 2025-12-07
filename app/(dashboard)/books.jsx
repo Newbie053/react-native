@@ -6,11 +6,11 @@ import ThemeView from "../../components/ThemeView"
 
 const Books = () => {
     return (
-        <ThemeView style={styles.container}>
+        <ThemeView style={styles.container} safe={true}>
 
             <Spacer />
             <ThemedText title={true} style={styles.heading}>
-                Your Reading List
+                My Reading List
             </ThemedText>
 
         </ThemeView>
@@ -22,7 +22,7 @@ export default Books
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        //justifyContent: "center",
         alignItems: "stretch",
     },
     heading: {
